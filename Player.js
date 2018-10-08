@@ -19,7 +19,7 @@ class Player {
 
     console.log(gameState);
 
-    console.log(gameState.round);
+    console.log("amountOfCommunityCards" + amountOfCommunityCards);
 
     ranks.push(our_hand[0].rank);
     ranks.push(our_hand[1].rank);
