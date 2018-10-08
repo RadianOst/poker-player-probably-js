@@ -54,7 +54,12 @@ class Player {
 
             } else if(isQueenOrJackInHand(ranks) &&  gameState.current_buy_in < 100) {
 
-                console.log("---------round 0: in isQueenOrJackInHand(ranks)-----------");
+                console.log("---------round 0: isQueenOrJackInHand(ranks) &&  gameState.current_buy_in < 100-----------");
+                output = call(gameState);
+
+            } else if(gameState.current_buy_in < 10) {
+
+                console.log("---------round 0: gameState.current_buy_in < 10-----------");
                 output = call(gameState);
 
             } else {
