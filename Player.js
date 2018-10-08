@@ -61,11 +61,6 @@ class Player {
                 console.log("---------round next: in isPair(ranks) || isAsInHand(ranks)-----------");
                 output = raise(gameState);
 
-            } else if(isKingInHand(ranks)) {
-
-                console.log("---------round next: in isKingInHand(ranks)-----------");
-                output = call(gameState);
-
             } else {
 
                 console.log("---------round next: output = 0----------");
@@ -142,7 +137,6 @@ class Player {
       }
       return false;
   }
-
   
 
   function raise(gameState) {
