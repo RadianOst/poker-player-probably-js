@@ -57,13 +57,9 @@ class Player {
   }
 }
 
-  function isPair(ranks){
-      for (var i=0; i<ranks.length-1; i++){
-          for (var j=i+1; j<ranks.length; j++){
-              if (ranks[i] == ranks[j]){
-                  return true;
-              }
-          }
+  function haveWeKingOrAsInHand(ranks){
+      if (ranks[0] == 'A' || ranks[0] == 'K' || ranks[1] == 'A' || ranks[1] == 'K'){
+          return true;
       }
       return false;
   }
