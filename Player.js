@@ -119,7 +119,7 @@ class Player {
 
   function isThree(ranks){
 
-      if(rank[2] == rank[3] && rank[3] == rank[4] && rank[0] != rank[2] && rank[1] != rank[2]) {
+      if(ranks[2] == ranks[3] && ranks[3] == ranks[4] && ranks[0] != ranks[2] && ranks[1] != ranks[2]) {
           return false;
       }
 
