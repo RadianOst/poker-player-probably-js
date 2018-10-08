@@ -17,6 +17,8 @@ class Player {
     console.log("----------our player-------------");
     console.log(our_player);
 
+    console.log(gameState.round);
+
     ranks.push(our_hand[0].rank);
     ranks.push(our_hand[1].rank);
       
