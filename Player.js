@@ -6,18 +6,19 @@ class Player {
   static betRequest(gameState, bet) {
 
     let minimum_raise = gameState.minimum_raise;
-    let our_player = gameState.players[gameState.in_action];
-    let our_hand = our_player.hole_cards;
+    
+    
     let common_cards = gameState.community_cards;
     let output = minimum_raise;
 
     try {
-      
-      let player = gameState.in_action;
-      console.log("----------in_action-------------");
-      console.log(player);
+      let our_player = gameState.players[gameState.in_action];
+      let our_hand = our_player.hole_cards;
 
-      output = gameState.current_buy_in - gameState.players[player].bet + minimum_raise;
+      console.log("----------in_action-------------");
+      console.log(our_player);
+
+      output = gameState.current_buy_in - our_player.bet + minimum_raise;
       console.log("----------in counting-------------");
       console.log(output);
 
@@ -27,7 +28,7 @@ class Player {
     }
     
     console.log("---------only minimum raise-----------");
-    console.log(gameState.minimum_raise + "is? " + output);
+    console.log(minimum_raise + "is? " + output);
     bet(output);
   }
 
