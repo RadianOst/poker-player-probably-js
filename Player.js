@@ -8,7 +8,7 @@ class Player {
     let minimum_raise = gameState.minimum_raise;
     console.log("---------------------------");
     console.log(minimum_raise);
-    bet(minimum_raise);
+    bet(minimum_raise+1);
   }
 
   static showdown(gameState) {
