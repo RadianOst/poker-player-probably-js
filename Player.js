@@ -50,7 +50,7 @@ class Player {
                 console.log("---------round 0: in isPair(ranks) || isKingInHand(ranks) || isAsInHand(ranks)-----------");
                 output = raise(gameState);
 
-            } else if(isQueenOrJackInHand(ranks) && bet_index == 0) {
+            } else if(isQueenOrJackInHand(ranks)) {
 
                 console.log("---------round 0: in isQueenOrJackInHand(ranks)-----------");
                 output = call(gameState);
