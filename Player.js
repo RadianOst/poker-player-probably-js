@@ -14,28 +14,18 @@ class Player {
 
     console.log("----------our player-------------");
     console.log(our_player);
-    try{
-      ranks.push(our_hand[0].rank);
-      ranks.push(our_hand[1].rank);
+
+    ranks.push(our_hand[0].rank);
+    ranks.push(our_hand[1].rank);
       
-      for (var i=0; i<common_cards.length; i++){
-          ranks.push(common_cards[i].rank);
-      }
+    for (var i=0; i<common_cards.length; i++){
+        ranks.push(common_cards[i].rank);
+    }
         
-        console.log("------ ranks in hand and community ------- ");
-        console.log(ranks);
-    } catch (e){
-        console.log("ERROR: ------- checking ranks ---------");
-        console.log(e);
-    }
-      
-    try{
-        var isPairOfCards = isPair(ranks);
-        console.log(isPairOfCards);
-    } catch (e){
-        console.log("ERROR: ----- isPair --------")
-        console.log(e);
-    }
+    console.log("------ ranks in hand and community ------- ");
+    console.log(ranks);
+
+    
     try{
         var isThreeOfCards= isThree(ranks);
         console.log("----------Have we three of cards?------------");
