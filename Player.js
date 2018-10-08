@@ -29,7 +29,7 @@ class Player {
 
     try {
     
-      output = gameState.current_buy_in - our_player.bet + minimum_raise;
+      output = gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
 
     } catch (e) {
       console.log("---------error----------");
@@ -44,9 +44,13 @@ class Player {
   static showdown(gameState) {
       
   }
+    
+  raise(gameState) {
+    return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
+  }
 
-  function isPair(hand, community){
-      
+  call(gameState) {
+    return gameState.current_buy_in - gameState.players[gameState.in_action].bet;
   }
    
 }
