@@ -19,7 +19,7 @@ class Player {
     }
     
     console.log("---------only minimum raise-----------");
-    console.log(minimum_raise + "is? " + output);
+    console.log(gameState.minimum_raise + "is? " + output);
     bet(output);
   }
 
