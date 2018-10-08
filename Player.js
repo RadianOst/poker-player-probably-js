@@ -37,7 +37,14 @@ class Player {
         console.log("ERROR: ----- isPair --------")
         console.log(e);
     }
-      
+    try{
+        var isThreeOfCards= isThree(ranks);
+        console.log("----------Have we three of cards?------------");
+        console.log(isThreeOfCards);
+    }catch(e){
+        console.log("ERROR: -------- isThree -----");
+        console.log(e);
+    }  
 
     try {
       output = raise(gameState);
@@ -62,6 +69,19 @@ class Player {
           for (var j=i+1; j<ranks.length; j++){
               if (ranks[i] == ranks[j]){
                   return true;
+              }
+          }
+      }
+      return false;
+  }
+
+  function isThree(ranks){
+      for (var i = 0; i<ranks.length-2; i++){
+          for (var j = i+1; j<ranks.length - 1; j++){
+              for(var k = j + 1; k<ranks.length; k++){
+                  if(ranks[i] == ranks[j] && ranks[i] == ranks[k] && ranks[j] == ranks[k]){
+                      return true;
+                  }
               }
           }
       }
