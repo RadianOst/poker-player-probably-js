@@ -11,6 +11,7 @@ class Player {
     let common_cards = gameState.community_cards;
     let output = minimum_raise;
     let ranks = [];
+    let round = gameState.round;
 
     console.log("----------our player-------------");
     console.log(our_player);
@@ -36,21 +37,40 @@ class Player {
     }  
 
     try {
+        if (round == 0) {
+            if(isPair(ranks) || haveWeKingInHand(ranks) || haveWeAsInHand(ranks)) {
 
-      if(isPair(ranks) || haveWeKingOrAsInHand(ranks)) {
+                console.log("---------round 0: in isPair(ranks) || haveWeKingInHand(ranks) || haveWeAsInHand(ranks)-----------");
+                output = raise(gameState);
 
-        console.log("---------in if(isPair(ranks) || haveWeKingOrAsInHand(ranks))-----------");
-        output = raise(gameState);
+            } else if(haveWeQueenOrJackInHand(ranks)) {
 
-      } else if(haveWeQueenOrJackInHand(ranks)) {
-        console.log("---------in haveWeQueenOrJackInHand(ranks)-----------");
+                console.log("---------round 0: in haveWeQueenOrJackInHand(ranks)-----------");
+                output = call(gameState);
 
-        output = call(gameState);
+            } else {
 
-      } else {
-        console.log("---------output = 0----------");
-        output = 0;
-      }
+                console.log("---------round 0: output = 0----------");
+                output = 0;
+            }
+            
+        } else {
+            if(isPair(ranks) || haveWeAsInHand(ranks)) {
+
+                console.log("---------round next: in isPair(ranks) || haveWeAsInHand(ranks)-----------");
+                output = raise(gameState);
+
+            } else if(haveWeKingInHand(ranks)) {
+
+                console.log("---------round next: in haveWeKingInHand(ranks)-----------");
+                output = call(gameState);
+
+            } else {
+
+                console.log("---------round next: output = 0----------");
+                output = 0;
+            }
+        }
 
     } catch (e) {
       console.log("---------error----------");
@@ -80,12 +100,19 @@ class Player {
       return false;
   }
 
-  function haveWeKingOrAsInHand(ranks){
-      if (ranks[0] == 'A' || ranks[0] == 'K' || ranks[1] == 'A' || ranks[1] == 'K'){
+  function haveWeKingInHand(ranks){
+      if (ranks[0] == 'K' || ranks[1] == 'K'){
           return true;
       }
       return false;
   }
+
+  function haveWeAsInHand(ranks){
+    if (ranks[0] == 'A' || ranks[1] == 'A'){
+        return true;
+    }
+    return false;
+}
 
   function haveWeQueenOrJackInHand(ranks){
       if (ranks[0] == 'Q' || ranks[0] == 'J' || ranks[1] == 'Q' || ranks[1] == 'J'){
