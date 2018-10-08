@@ -4,7 +4,11 @@ class Player {
   }
 
   static betRequest(gameState, bet) {
-    bet(0);
+
+    let minimum_raise = gameState.minimum_raise;
+    console.log("---------------------------");
+    console.log(minimum_raise);
+    bet(minimum_raise);
   }
 
   static showdown(gameState) {
