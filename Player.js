@@ -9,7 +9,11 @@ class Player {
 
     try {
       
-      output = gameState.current_buy_in - gameState.players[gameState.in_action].bet + minimum_raise;
+      let player = gameState.in_action;
+      console.log("----------in_action-------------");
+      console.log(player);
+
+      output = gameState.current_buy_in - gameState.players[player].bet + minimum_raise;
       console.log("----------in counting-------------");
       console.log(output);
 
