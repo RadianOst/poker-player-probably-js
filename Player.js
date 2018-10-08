@@ -88,6 +88,13 @@ class Player {
       return false;
   }
 
+  function haveWeQueenOrJackInHand(ranks){
+      if (ranks[0] == 'Q' || ranks[0] == 'J' || ranks[1] == 'Q' || ranks[1] == 'J'){
+          return true;
+      }
+      return false;
+  }
+
   function isThree(ranks){
       for (var i = 0; i<ranks.length-2; i++){
           for (var j = i+1; j<ranks.length - 1; j++){
