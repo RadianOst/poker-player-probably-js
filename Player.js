@@ -29,9 +29,15 @@ class Player {
         console.log(e);
     }
       
+    try{
+        var isPair = Player.isPair(ranks);
+    } catch (e){
+        console.log("ERROR: ----- isPair --------")
+        console.log(e);
+    }
+      
 
     try {
-    
       output = gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
 
     } catch (e) {
@@ -46,6 +52,17 @@ class Player {
 
   static showdown(gameState) {
       
+  }
+    
+  static isPair(ranks){
+      for (var i=0; i<ranks.length-1; i++){
+          for (var j=i+1; j<ranks.length; j++){
+              if (ranks[i] == ranks[j]){
+                  return true;
+              }
+          }
+      }
+      return false;
   }
 
   raise(gameState) {
