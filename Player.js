@@ -92,7 +92,7 @@ class Player {
       for (var i = 0; i<ranks.length-2; i++){
           for (var j = i+1; j<ranks.length - 1; j++){
               for(var k = j + 1; k<ranks.length; k++){
-                  if(ranks[i] == ranks[j] && ranks[i] == ranks[k] && ranks[j] == ranks[k]){
+                  if(ranks[i] == ranks[j] && ranks[i] == ranks[k] && ranks[j] == ranks[k] && (ranks[i] == ranks[0] || ranks[i] == ranks[1] || ranks[j] == ranks[1])){
                       return true;
                   }
               }
