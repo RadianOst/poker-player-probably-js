@@ -14,12 +14,14 @@ class Player {
     let amountOfCommunityCards = gameState.community_cards.length;
     let bet_index = gameState.bet_index;
 
-    console.log("----------our player-------------");
-    console.log(our_player);
-
+    console.log("----------gameState-------------");
     console.log(gameState);
+    console.log("---------------------------------");
 
-    console.log("amountOfCommunityCards" + amountOfCommunityCards);
+    console.log("----------amountOfCommunityCards-------------");
+    console.log(amountOfCommunityCards);
+    console.log("---------------------------------");
+
 
     ranks.push(our_hand[0].rank);
     ranks.push(our_hand[1].rank);
