@@ -25,13 +25,12 @@ class Player {
         console.log("------ ranks in hand and community ------- ");
         console.log(ranks);
     } catch (e){
-        console.log("------------ checking ranks -------------");
+        console.log("ERROR: ------- checking ranks ---------");
         console.log(e);
     }
       
     try{
         var isPairOfCards = isPair(ranks);
-        console.log("Have we pair of cards?");
         console.log(isPairOfCards);
     } catch (e){
         console.log("ERROR: ----- isPair --------")
@@ -47,7 +46,12 @@ class Player {
     }  
 
     try {
-      output = raise(gameState);
+
+      if(isPair(ranks) || haveWeKingOrAsInHand(ranks)) {
+        output = raise(gameState);
+      } else {
+        bet(0);
+      }
 
     } catch (e) {
       console.log("---------error----------");
@@ -64,13 +68,19 @@ class Player {
   }
 }
 
+
   function isPair(ranks){
-      for (var i=0; i<ranks.length-1; i++){
-          for (var j=i+1; j<ranks.length; j++){
-              if (ranks[i] == ranks[j]){
-                  return true;
-              }
+      for (var i=2; i<ranks.length; i++){
+          if (ranks[i] == ranks[0] || ranks[i] == ranks[1]){
+              return true;
           }
+      }
+      return false;
+  }
+
+  function haveWeKingOrAsInHand(ranks){
+      if (ranks[0] == 'A' || ranks[0] == 'K' || ranks[1] == 'A' || ranks[1] == 'K'){
+          return true;
       }
       return false;
   }
@@ -87,6 +97,8 @@ class Player {
       }
       return false;
   }
+
+  
 
   function raise(gameState) {
     return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
