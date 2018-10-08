@@ -5,7 +5,11 @@ class Player {
 
   static betRequest(gameState, bet) {
 
-    let output = gameState.minimum_raise;
+    let minimum_raise = gameState.minimum_raise;
+    let our_player = gameState.players[gameState.in_action];
+    let our_hand = our_player.hole_cards;
+    let common_cards = gameState.community_cards;
+    let output = minimum_raise;
 
     try {
       
@@ -28,7 +32,9 @@ class Player {
   }
 
   static showdown(gameState) {
+      
   }
+   
 }
 
 module.exports = Player;
