@@ -9,10 +9,22 @@ class Player {
     let our_player = gameState.players[gameState.in_action];
     let our_hand = our_player.hole_cards;
     let common_cards = gameState.community_cards;
+    let output = minimum_raise;
+
+    try {
+      
+      output = gameState.current_buy_in - gameState.players[in_action].bet + minimum_raise;
+      console.log("----------in counting-------------");
+      console.log(output);
+
+    } catch (e) {
+      console.log("---------error----------");
+      console.log(e);
+    }
     
-    console.log("---------------------------");
-    console.log(minimum_raise);
-    bet(minimum_raise+1);
+    console.log("---------only minimum raise-----------");
+    console.log(gameState.minimum_raise + "is? " + output);
+    bet(output);
   }
 
   static showdown(gameState) {
