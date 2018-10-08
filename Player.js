@@ -48,9 +48,11 @@ class Player {
     try {
 
       if(isPair(ranks) || haveWeKingOrAsInHand(ranks)) {
+        console.log("---------in if(isPair(ranks) || haveWeKingOrAsInHand(ranks))-----------");
         output = raise(gameState);
       } else {
-        bet(0);
+        console.log("---------output = 0----------");
+        output = 0;
       }
 
     } catch (e) {
