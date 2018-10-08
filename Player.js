@@ -32,7 +32,7 @@ class Player {
 
     try {
     
-      output = gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
+      output = this.raise(gameState);
 
     } catch (e) {
       console.log("---------error----------");
@@ -48,11 +48,11 @@ class Player {
       
   }
 
-  function raise(gameState) {
+  raise(gameState) {
     return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
   }
 
-  function call(gameState) {
+  call(gameState) {
     return gameState.current_buy_in - gameState.players[gameState.in_action].bet;
   }
    
