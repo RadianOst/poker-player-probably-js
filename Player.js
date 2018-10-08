@@ -38,7 +38,10 @@ class Player {
       
 
     try {
-      output = gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
+      output = raise(gameState);
+      console.log("------ in try ------- ");
+      console.log(gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise);
+
 
     } catch (e) {
       console.log("---------error----------");
@@ -64,15 +67,18 @@ class Player {
       }
       return false;
   }
+}
 
-  raise(gameState) {
+  function raise(gameState) {
+    console.log("------ raise function ------- ");
+    console.log(gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise);
     return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
   }
 
-  call(gameState) {
+  function call(gameState) {
     return gameState.current_buy_in - gameState.players[gameState.in_action].bet;
   }
    
-}
+
 
 module.exports = Player;
