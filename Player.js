@@ -39,9 +39,6 @@ class Player {
 
     try {
       output = raise(gameState);
-      console.log("------ in try ------- ");
-      console.log(gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise);
-
 
     } catch (e) {
       console.log("---------error----------");
@@ -70,8 +67,6 @@ class Player {
 }
 
   function raise(gameState) {
-    console.log("------ raise function ------- ");
-    console.log(gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise);
     return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
   }
 
