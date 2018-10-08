@@ -18,7 +18,7 @@ class Player {
       ranks.push(our_hand[0].rank);
       ranks.push(our_hand[1].rank);
       
-      for (i=0; i<community.length; i++){
+      for (var i=0; i<community.length; i++){
           ranks.push(community[i].rank);
       }
     } catch (e){
