@@ -11,32 +11,22 @@ class Player {
     let common_cards = gameState.community_cards;
     let output = minimum_raise;
     let ranks = [];
+    let round = gameState.round;
 
     console.log("----------our player-------------");
     console.log(our_player);
-    try{
-      ranks.push(our_hand[0].rank);
-      ranks.push(our_hand[1].rank);
+
+    ranks.push(our_hand[0].rank);
+    ranks.push(our_hand[1].rank);
       
-      for (var i=0; i<common_cards.length; i++){
-          ranks.push(common_cards[i].rank);
-      }
+    for (var i=0; i<common_cards.length; i++){
+        ranks.push(common_cards[i].rank);
+    }
         
-        console.log("------ ranks in hand and community ------- ");
-        console.log(ranks);
-    } catch (e){
-        console.log("ERROR: ------- checking ranks ---------");
-        console.log(e);
-    }
-      
-    try{
-        var isPairOfCards = isPair(ranks);
-        console.log("----------Have we pair of cards?------------");
-        console.log(isPairOfCards);
-    } catch (e){
-        console.log("ERROR: ----- isPair --------")
-        console.log(e);
-    }
+    console.log("------ ranks in hand and community ------- ");
+    console.log(ranks);
+
+    
     try{
         var isThreeOfCards= isThree(ranks);
         console.log("----------Have we three of cards?------------");
@@ -47,14 +37,40 @@ class Player {
     }  
 
     try {
+        if (round == 0) {
+            if(isPair(ranks) || isKingInHand(ranks) || isAsInHand(ranks)) {
 
-      if(isPair(ranks) || haveWeKingOrAsInHand(ranks)) {
-        console.log("---------in if(isPair(ranks) || haveWeKingOrAsInHand(ranks))-----------");
-        output = raise(gameState);
-      } else {
-        console.log("---------output = 0----------");
-        output = 0;
-      }
+                console.log("---------round 0: in isPair(ranks) || isKingInHand(ranks) || isAsInHand(ranks)-----------");
+                output = raise(gameState);
+
+            } else if(isQueenOrJackInHand(ranks)) {
+
+                console.log("---------round 0: in isQueenOrJackInHand(ranks)-----------");
+                output = call(gameState);
+
+            } else {
+
+                console.log("---------round 0: output = 0----------");
+                output = 0;
+            }
+            
+        } else {
+            if(isPair(ranks) || isAsInHand(ranks)) {
+
+                console.log("---------round next: in isPair(ranks) || isAsInHand(ranks)-----------");
+                output = raise(gameState);
+
+            } else if(isKingInHand(ranks)) {
+
+                console.log("---------round next: in isKingInHand(ranks)-----------");
+                output = call(gameState);
+
+            } else {
+
+                console.log("---------round next: output = 0----------");
+                output = 0;
+            }
+        }
 
     } catch (e) {
       console.log("---------error----------");
@@ -84,14 +100,21 @@ class Player {
       return false;
   }
 
-  function haveWeKingOrAsInHand(ranks){
-      if (ranks[0] == 'A' || ranks[0] == 'K' || ranks[1] == 'A' || ranks[1] == 'K'){
+  function isKingInHand(ranks){
+      if (ranks[0] == 'K' || ranks[1] == 'K'){
           return true;
       }
       return false;
   }
 
-  function haveWeQueenOrJackInHand(ranks){
+  function isAsInHand(ranks){
+    if (ranks[0] == 'A' || ranks[1] == 'A'){
+        return true;
+    }
+    return false;
+}
+
+  function isQueenOrJackInHand(ranks){
       if (ranks[0] == 'Q' || ranks[0] == 'J' || ranks[1] == 'Q' || ranks[1] == 'J'){
           return true;
       }
