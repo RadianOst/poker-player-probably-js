@@ -6,9 +6,10 @@ class Player {
   static betRequest(gameState, bet) {
 
     let minimum_raise = gameState.minimum_raise;
+    let output = gameState.current_buy_in - gameState.players[in_action][bet] + minimum_raise;
     console.log("---------------------------");
-    console.log(minimum_raise);
-    bet(minimum_raise+1);
+    console.log(output);
+    bet(output);
   }
 
   static showdown(gameState) {
