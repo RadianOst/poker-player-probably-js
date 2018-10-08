@@ -132,9 +132,9 @@ class Player {
           equal = 0;
           for (var j = i+1; j<ranks.length; j++){
               if(ranks[i] == ranks[j]){
-                  equals++;
+                  equal++;
               }
-              if(equals == 2) {
+              if(equal == 2) {
                   return true;
               }
           }
