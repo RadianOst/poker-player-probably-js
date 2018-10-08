@@ -5,10 +5,22 @@ class Player {
 
   static betRequest(gameState, bet) {
 
-    let minimum_raise = gameState.minimum_raise;
-    console.log("---------------------------");
-    console.log(minimum_raise);
-    bet(minimum_raise+1);
+    let output = gameState.minimum_raise;
+
+    try {
+      
+      output = gameState.current_buy_in - gameState.players[in_action].bet + minimum_raise;
+      console.log("----------in counting-------------");
+      console.log(output);
+
+    } catch (e) {
+      console.log("---------error----------");
+      console.log(e);
+    }
+    
+    console.log("---------only minimum raise-----------");
+    console.log(minimum_raise + "is? " + output);
+    bet(output);
   }
 
   static showdown(gameState) {
