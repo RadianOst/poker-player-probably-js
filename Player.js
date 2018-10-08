@@ -38,14 +38,14 @@ class Player {
 
     try {
         if (round == 0) {
-            if(isPair(ranks) || haveWeKingInHand(ranks) || haveWeAsInHand(ranks)) {
+            if(isPair(ranks) || isKingInHand(ranks) || isAsInHand(ranks)) {
 
-                console.log("---------round 0: in isPair(ranks) || haveWeKingInHand(ranks) || haveWeAsInHand(ranks)-----------");
+                console.log("---------round 0: in isPair(ranks) || isKingInHand(ranks) || isAsInHand(ranks)-----------");
                 output = raise(gameState);
 
-            } else if(haveWeQueenOrJackInHand(ranks)) {
+            } else if(isQueenOrJackInHand(ranks)) {
 
-                console.log("---------round 0: in haveWeQueenOrJackInHand(ranks)-----------");
+                console.log("---------round 0: in isQueenOrJackInHand(ranks)-----------");
                 output = call(gameState);
 
             } else {
@@ -55,14 +55,14 @@ class Player {
             }
             
         } else {
-            if(isPair(ranks) || haveWeAsInHand(ranks)) {
+            if(isPair(ranks) || isAsInHand(ranks)) {
 
-                console.log("---------round next: in isPair(ranks) || haveWeAsInHand(ranks)-----------");
+                console.log("---------round next: in isPair(ranks) || isAsInHand(ranks)-----------");
                 output = raise(gameState);
 
-            } else if(haveWeKingInHand(ranks)) {
+            } else if(isKingInHand(ranks)) {
 
-                console.log("---------round next: in haveWeKingInHand(ranks)-----------");
+                console.log("---------round next: in isKingInHand(ranks)-----------");
                 output = call(gameState);
 
             } else {
@@ -100,21 +100,21 @@ class Player {
       return false;
   }
 
-  function haveWeKingInHand(ranks){
+  function isKingInHand(ranks){
       if (ranks[0] == 'K' || ranks[1] == 'K'){
           return true;
       }
       return false;
   }
 
-  function haveWeAsInHand(ranks){
+  function isAsInHand(ranks){
     if (ranks[0] == 'A' || ranks[1] == 'A'){
         return true;
     }
     return false;
 }
 
-  function haveWeQueenOrJackInHand(ranks){
+  function isQueenOrJackInHand(ranks){
       if (ranks[0] == 'Q' || ranks[0] == 'J' || ranks[1] == 'Q' || ranks[1] == 'J'){
           return true;
       }
