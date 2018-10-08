@@ -30,7 +30,7 @@ class Player {
     }
       
     try{
-        var isPair = isPair(ranks);
+        var isPairOfCards = isPair(ranks);
     } catch (e){
         console.log("ERROR: ----- isPair --------")
         console.log(e);
