@@ -50,7 +50,7 @@ class Player {
                 console.log("---------round 0: in isPair(ranks) || isKingInHand(ranks) || isAsInHand(ranks)-----------");
                 output = raise(gameState);
 
-            } else if(isQueenOrJackInHand(ranks)) {
+            } else if(isQueenOrJackInHand(ranks) &&  gameState.current_buy_in < 100) {
 
                 console.log("---------round 0: in isQueenOrJackInHand(ranks)-----------");
                 output = call(gameState);
@@ -124,6 +124,8 @@ class Player {
   }
 
   function isThree(ranks){
+
+
 
       if(ranks[2] == ranks[3] && ranks[3] == ranks[4] && ranks[0] != ranks[2] && ranks[1] != ranks[2]) {
           return false;
