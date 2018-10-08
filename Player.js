@@ -31,7 +31,6 @@ class Player {
       
     try{
         var isPairOfCards = isPair(ranks);
-        console.log("---- Have we pair of cards? ----");
         console.log(isPairOfCards);
     } catch (e){
         console.log("ERROR: ----- isPair --------")
@@ -48,7 +47,7 @@ class Player {
 
     try {
 
-      if(isPair(ranks)) {
+      if(isPair(ranks) || haveWeKingOrAsInHand(ranks)) {
         output = raise(gameState);
       } else {
         bet(0);
