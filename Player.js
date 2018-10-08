@@ -77,6 +77,9 @@ class Player {
               return true;
           }
       }
+      if (ranks[0] == ranks[1]){
+          return true;
+      }
       return false;
   }
 
