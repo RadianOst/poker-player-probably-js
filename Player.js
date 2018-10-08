@@ -18,9 +18,12 @@ class Player {
       ranks.push(our_hand[0].rank);
       ranks.push(our_hand[1].rank);
       
-      for (var i=0; i<community.length; i++){
-          ranks.push(community[i].rank);
+      for (var i=0; i<common_cards.length; i++){
+          ranks.push(common_cards[i].rank);
       }
+        
+        console.log("------ ranks in hand and community ------- ");
+        console.log(ranks);
     } catch (e){
         console.log("------------ checking ranks -------------");
         console.log(e);
