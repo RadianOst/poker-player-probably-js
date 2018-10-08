@@ -25,13 +25,13 @@ class Player {
         console.log("------ ranks in hand and community ------- ");
         console.log(ranks);
     } catch (e){
-        console.log("------------ checking ranks -------------");
+        console.log("ERROR: ------- checking ranks ---------");
         console.log(e);
     }
       
     try{
         var isPairOfCards = isPair(ranks);
-        console.log("Have we pair of cards?");
+        console.log("---- Have we pair of cards? ----");
         console.log(isPairOfCards);
     } catch (e){
         console.log("ERROR: ----- isPair --------")
