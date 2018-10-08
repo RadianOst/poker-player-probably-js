@@ -10,9 +10,22 @@ class Player {
     let our_hand = our_player.hole_cards;
     let common_cards = gameState.community_cards;
     let output = minimum_raise;
+    let ranks = [];
 
     console.log("----------our player-------------");
     console.log(our_player);
+    try{
+      ranks.push(our_hand[0].rank);
+      ranks.push(our_hand[1].rank);
+      
+      for (i=0; i<community.length; i++){
+          ranks.push(community[i].rank);
+      }
+    } catch (e){
+        console.log("------------ checking ranks -------------");
+        console.log(e);
+    }
+      
 
     try {
     
@@ -29,6 +42,10 @@ class Player {
   }
 
   static showdown(gameState) {
+      
+  }
+
+  function isPair(hand, community){
       
   }
    
