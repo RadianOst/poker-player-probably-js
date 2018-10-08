@@ -25,17 +25,26 @@ class Player {
         console.log("------ ranks in hand and community ------- ");
         console.log(ranks);
     } catch (e){
-        console.log("------------ checking ranks -------------");
+        console.log("ERROR: ------- checking ranks ---------");
         console.log(e);
     }
       
     try{
         var isPairOfCards = isPair(ranks);
+        console.log("---- Have we pair of cards? ----");
+        console.log(isPairOfCards);
     } catch (e){
         console.log("ERROR: ----- isPair --------")
         console.log(e);
     }
-      
+    try{
+        var isThreeOfCards= isThree(ranks);
+        console.log("----------Have we three of cards?------------");
+        console.log(isThreeOfCards);
+    }catch(e){
+        console.log("ERROR: -------- isThree -----");
+        console.log(e);
+    }  
 
     try {
 
@@ -60,11 +69,20 @@ class Player {
   }
 }
 
-  function isPair(ranks){
-      for (var i=0; i<ranks.length-1; i++){
-          for (var j=i+1; j<ranks.length; j++){
-              if (ranks[i] == ranks[j]){
-                  return true;
+  function haveWeKingOrAsInHand(ranks){
+      if (ranks[0] == 'A' || ranks[0] == 'K' || ranks[1] == 'A' || ranks[1] == 'K'){
+          return true;
+      }
+      return false;
+  }
+
+  function isThree(ranks){
+      for (var i = 0; i<ranks.length-2; i++){
+          for (var j = i+1; j<ranks.length - 1; j++){
+              for(var k = j + 1; k<ranks.length; k++){
+                  if(ranks[i] == ranks[j] && ranks[i] == ranks[k] && ranks[j] == ranks[k]){
+                      return true;
+                  }
               }
           }
       }
