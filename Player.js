@@ -48,8 +48,15 @@ class Player {
     try {
 
       if(isPair(ranks) || haveWeKingOrAsInHand(ranks)) {
+
         console.log("---------in if(isPair(ranks) || haveWeKingOrAsInHand(ranks))-----------");
         output = raise(gameState);
+
+      } else if(haveWeQueenOrJackInHand(ranks)) {
+        console.log("---------in haveWeQueenOrJackInHand(ranks)-----------");
+
+        output = call(gameState);
+
       } else {
         console.log("---------output = 0----------");
         output = 0;
