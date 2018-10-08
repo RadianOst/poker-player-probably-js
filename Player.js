@@ -11,7 +11,7 @@ class Player {
     let common_cards = gameState.community_cards;
     let output = minimum_raise;
     let ranks = [];
-    let round = gameState.round;
+    let amountOfCommunityCards = gameState.community_cards.length;
     let bet_index = gameState.bet_index;
 
     console.log("----------our player-------------");
@@ -42,7 +42,7 @@ class Player {
     }  
 
     try {
-        if (round == 0) {
+        if (amountOfCommunityCards == 0) {
             if(isPair(ranks) || isKingInHand(ranks) || isAsInHand(ranks)) {
 
                 console.log("---------round 0: in isPair(ranks) || isKingInHand(ranks) || isAsInHand(ranks)-----------");
