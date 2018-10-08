@@ -44,6 +44,8 @@ class Player {
     }  
 
     try {
+        console.log("AMOUNT OF COMMUNITY CARDS:");
+        console.log(amountOfCommunityCards);
         if (amountOfCommunityCards == 0) {
             if(isPair(ranks) || isKingInHand(ranks) || isAsInHand(ranks)) {
 
