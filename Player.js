@@ -31,6 +31,7 @@ class Player {
       
     try{
         var isPairOfCards = isPair(ranks);
+        console.log("----------Have we pair of cards?------------");
         console.log(isPairOfCards);
     } catch (e){
         console.log("ERROR: ----- isPair --------")
