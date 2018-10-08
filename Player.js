@@ -38,7 +38,12 @@ class Player {
       
 
     try {
-      output = raise(gameState);
+
+      if(isPair(ranks)) {
+        output = raise(gameState);
+      } else {
+        bet(0);
+      }
 
     } catch (e) {
       console.log("---------error----------");
@@ -65,6 +70,8 @@ class Player {
       }
       return false;
   }
+
+  
 
   function raise(gameState) {
     return gameState.current_buy_in - gameState.players[gameState.in_action].bet + gameState.minimum_raise;
